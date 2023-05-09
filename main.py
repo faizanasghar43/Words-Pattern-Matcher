@@ -3,7 +3,7 @@ import sys
 import nltk
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QLabel, QTextEdit, QGridLayout, QVBoxLayout, \
-    QPushButton, QSplitter, QScrollArea, QMessageBox, QComboBox, QLineEdit, QHBoxLayout, QListWidget, QSizePolicy
+    QPushButton, QSplitter, QScrollArea, QMessageBox, QLineEdit, QListWidget, QSizePolicy
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
@@ -27,7 +27,6 @@ class MyWindow(QMainWindow):
         scroll_area.setWidgetResizable(True)
         scroll_area.setWidget(QWidget())
         scroll_area.widget().setLayout(self.grid_layout)
-        # scroll_area.setStyleSheet("QScrollArea { border: none; }")
         scroll_area.setStyleSheet("""
             QScrollArea {
                 border: none;
@@ -78,10 +77,6 @@ class MyWindow(QMainWindow):
         vbox_layout1 = QVBoxLayout()
         vbox_layout.addWidget(find_button)
         vbox_layout.addWidget(text_edit)
-
-        # vbox_layout1.insertWidget(0, label1)
-        # vbox_layout1.addLayout(self.grid_layout)
-        # Create a splitter widget to divide the window into two panes
         splitter = QSplitter(Qt.Horizontal)
         splitter.addWidget(scroll_area)
         splitter.addWidget(QWidget())
@@ -89,7 +84,6 @@ class MyWindow(QMainWindow):
         splitter.setStyleSheet("QSplitter::handle { background-color: gray }")
         splitter.widget(1).setLayout(vbox_layout)
         splitter.widget(0).setLayout(vbox_layout1)
-
         # Set the splitter as the main widget
         self.setCentralWidget(splitter)
         self.word_count_combo = QLineEdit()
@@ -154,7 +148,7 @@ class MyWindow(QMainWindow):
         """)
         message_box.exec_()
 
-    def patterns(self, text, min_length=2, max_length=200, excluded_patterns=(' ', '',)):
+    def patterns(self, text, min_length=2, max_length=500, excluded_patterns=(' ', '',)):
         # Clear the list widget
         self.list_widget.clear()
         # Tokenize the text into words
