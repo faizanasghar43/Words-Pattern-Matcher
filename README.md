@@ -17,7 +17,7 @@ Before using this application, you need to make sure that you have the following
 
 # Usage
 
-To use the application, simply run the main.py file using Python. A graphical user interface will appear, where you can enter the text you want to search and the keywords you want to search for. You can also specify the number of words in each pattern you want to search for.
+To use the application, simply run the main.py file using Python. A graphical user interface will appear, where you can enter the text you want to search and the keywords you want to search for.
 
 Once you have entered the necessary information, click the "Find Pattern" button to search for the specified patterns. The results will be displayed in a list widget.
 Contributing
